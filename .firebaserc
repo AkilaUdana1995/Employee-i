@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "employeeapp-test": {
+      "hosting": {
+        "empApp": [
+          "employeeapp-test"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "employeeapp-test"
+  }
+}

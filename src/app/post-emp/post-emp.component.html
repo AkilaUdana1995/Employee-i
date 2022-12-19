@@ -28,17 +28,17 @@
       </div>
 
       <div class="form-group mb-2">
-        <label for="exampleInputEmail1">NIChhh</label>
+        <label for="exampleInputEmail1">NIC</label>
         <input formControlName="NIC" type="text" class="form-control" id="NIC" aria-describedby="emailHelp"
           placeholder="951102237 or 19951102237"
           [ngClass]="{ 'is-invalid': registerForm.controls['NIC'].touched && registerForm.controls['NIC'].errors }">
 
-        <mat-hint style="font-size:x-small">Enter without "Vu"</mat-hint>
+        <mat-hint style="font-size:x-small">Enter without "V"</mat-hint>
 
         <div *ngIf=" registerForm.controls['NIC'].errors" class="invalid-feedback">
           <div *ngIf="registerForm.controls['NIC'].errors['required']">NIC is required!</div>
           <div *ngIf="registerForm.controls['NIC'].errors['pattern']">Invalid Inputs!!</div>
-          <div *ngIf="registerForm.controls['NIC'].errors['minlength']">Cannot less than 10 digits!</div>
+          <div *ngIf="registerForm.controls['NIC'].errors['minlength']">Cannot less than 9 digits!</div>
           <div *ngIf="registerForm.controls['NIC'].errors['maxlength']">Cannot more than 12 digits!</div>
         </div>
       </div>
@@ -50,7 +50,9 @@
           [ngClass]="{ 'is-invalid': registerForm.controls['EMP_code'].touched && registerForm.controls['EMP_code'].errors }">
 
         <div *ngIf=" registerForm.controls['EMP_code'].errors" class="invalid-feedback">
-          <div *ngIf="registerForm.controls['EMP_code'].errors['required']">Name is required!</div>
+          <div *ngIf="registerForm.controls['EMP_code'].errors['required']">EMP code is required!</div>
+          <div *ngIf="registerForm.controls['EMP_code'].errors['pattern']">Invalid Inputs!</div>
+
         </div>
       </div>
 
@@ -71,16 +73,14 @@
           <option>5</option>
         </select>
       </div> -->
-
       <div class="form-group mb-4">
         <label class="labelStyles ">Gender</label>
-        <select  formControlName="gender" id="gender" class="form-select" aria-label="Default select example"
-        [ngClass]="{ 'is-invalid': registerForm.controls['gender'].touched && registerForm.controls['gender'].errors }">
-        
+        <select formControlName="gender" id="gender" class="form-select" aria-label="Default select example"
+          [ngClass]="{ 'is-invalid': registerForm.controls['gender'].touched && registerForm.controls['gender'].errors }">
+
           <option value="">Please select a Gender</option>
-          <option value="Auto">male</option>
-          <option value="Manual">female</option>
-          <option value="Manual">preper not to say</option>
+          <option *ngFor="let myGender of genderList" [ngValue]="myGender">{{myGender}}</option>
+
         </select>
         <div *ngIf=" registerForm.controls['gender'].errors" class="invalid-feedback">
           <div *ngIf="registerForm.controls['gender'].errors['required']">Select your gender!
@@ -92,22 +92,23 @@
       <div class="form-group mb-4">
         <label class="labelStyles ">Department</label>
         <select formControlName="department" id="department" class="form-select" aria-label="Default select example"
-        [ngClass]="{ 'is-invalid': registerForm.controls['department'].touched && registerForm.controls['department'].errors }">
-        
+          [ngClass]="{ 'is-invalid': registerForm.controls['department'].touched && registerForm.controls['department'].errors }">
+
           <option value="">Please select your department!</option>
-          <option value="Auto">A</option>
-          <option value="Manual">B</option>
+          <option *ngFor="let myDepartment of Departments" [ngValue]="myDepartment">{{myDepartment}}</option>
+
         </select>
         <div *ngIf=" registerForm.controls['department'].errors" class="invalid-feedback">
           <div *ngIf="registerForm.controls['department'].errors['required']">Select your department!!
-         
+
           </div>
         </div>
       </div>
 
-      <button class="myButton mb-2" mat-raised-button color="primary" type="submit">Post
-        My
-        Ad</button>
+      <button [disabled]="!registerForm.valid" (click)="registerEmployee()" class="myButton mb-2" mat-raised-button
+        color="primary" type="submit">Add new
+        Employee
+      </button>
     </form>
   </div>
 </div>

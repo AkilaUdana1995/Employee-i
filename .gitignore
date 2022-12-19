@@ -41,3 +41,8 @@ testem.log
 .DS_Store
 Thumbs.db
 src/EMPLOYEE-App/
+
+# Firebase
+.firebase
+*-debug.log
+.runtimeconfig.json
