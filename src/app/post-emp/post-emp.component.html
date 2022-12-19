@@ -1,0 +1,113 @@
+<div class="myscroll bg-primary">
+  <div class="layer bg-warning" style="min-height: 79.39vh;">
+    <form class="formCss mt-5" [formGroup]="registerForm">
+
+      <h1 style="text-align: center; margin-top: 10px;"><strong>Fill in the details</strong> </h1>
+      <hr>
+      <br>
+      <div class="form-group mb-2">
+        <label for="exampleInputEmail1">Name</label>
+        <input formControlName="name" id="name" type="text" class="form-control" id="Name" aria-describedby="emailHelp"
+          placeholder="Akila Udana"
+          [ngClass]="{ 'is-invalid': registerForm.controls['name'].touched && registerForm.controls['name'].errors }">
+
+        <div *ngIf=" registerForm.controls['name'].errors" class="invalid-feedback">
+          <div *ngIf="registerForm.controls['name'].errors['required']">Name is required!</div>
+        </div>
+      </div>
+
+      <div class="form-group mb-2">
+        <label for="exampleInputEmail1">Adress</label>
+        <input formControlName="address" type="text" class="form-control" id="address" aria-describedby="emailHelp"
+          placeholder="no 54, Winston drive, NJ, USA"
+          [ngClass]="{ 'is-invalid': registerForm.controls['address'].touched && registerForm.controls['address'].errors }">
+
+        <div *ngIf=" registerForm.controls['address'].errors" class="invalid-feedback">
+          <div *ngIf="registerForm.controls['address'].errors['required']">Address is required!</div>
+        </div>
+      </div>
+
+      <div class="form-group mb-2">
+        <label for="exampleInputEmail1">NIChhh</label>
+        <input formControlName="NIC" type="text" class="form-control" id="NIC" aria-describedby="emailHelp"
+          placeholder="951102237 or 19951102237"
+          [ngClass]="{ 'is-invalid': registerForm.controls['NIC'].touched && registerForm.controls['NIC'].errors }">
+
+        <mat-hint style="font-size:x-small">Enter without "Vu"</mat-hint>
+
+        <div *ngIf=" registerForm.controls['NIC'].errors" class="invalid-feedback">
+          <div *ngIf="registerForm.controls['NIC'].errors['required']">NIC is required!</div>
+          <div *ngIf="registerForm.controls['NIC'].errors['pattern']">Invalid Inputs!!</div>
+          <div *ngIf="registerForm.controls['NIC'].errors['minlength']">Cannot less than 10 digits!</div>
+          <div *ngIf="registerForm.controls['NIC'].errors['maxlength']">Cannot more than 12 digits!</div>
+        </div>
+      </div>
+
+      <div class="form-group mb-2">
+        <label for="exampleInputEmail1">EMP code</label>
+        <input formControlName="EMP_code" type="text" class="form-control" id="EMP_code" aria-describedby="emailHelp"
+          placeholder="DCS44UI"
+          [ngClass]="{ 'is-invalid': registerForm.controls['EMP_code'].touched && registerForm.controls['EMP_code'].errors }">
+
+        <div *ngIf=" registerForm.controls['EMP_code'].errors" class="invalid-feedback">
+          <div *ngIf="registerForm.controls['EMP_code'].errors['required']">Name is required!</div>
+        </div>
+      </div>
+
+
+
+      <!-- <div class="form-group mb-2">
+        <label for="exampleFormControlInput1">Email address</label>
+        <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
+      </div> -->
+
+      <!-- <div class="form-group mb-4">
+        <label for="exampleFormControlSelect1">Example select</label>
+        <select class="form-control" id="exampleFormControlSelect1">
+          <option>1</option>
+          <option>2</option>
+          <option>3</option>
+          <option>4</option>
+          <option>5</option>
+        </select>
+      </div> -->
+
+      <div class="form-group mb-4">
+        <label class="labelStyles ">Gender</label>
+        <select  formControlName="gender" id="gender" class="form-select" aria-label="Default select example"
+        [ngClass]="{ 'is-invalid': registerForm.controls['gender'].touched && registerForm.controls['gender'].errors }">
+        
+          <option value="">Please select a Gender</option>
+          <option value="Auto">male</option>
+          <option value="Manual">female</option>
+          <option value="Manual">preper not to say</option>
+        </select>
+        <div *ngIf=" registerForm.controls['gender'].errors" class="invalid-feedback">
+          <div *ngIf="registerForm.controls['gender'].errors['required']">Select your gender!
+          </div>
+        </div>
+      </div>
+
+
+      <div class="form-group mb-4">
+        <label class="labelStyles ">Department</label>
+        <select formControlName="department" id="department" class="form-select" aria-label="Default select example"
+        [ngClass]="{ 'is-invalid': registerForm.controls['department'].touched && registerForm.controls['department'].errors }">
+        
+          <option value="">Please select your department!</option>
+          <option value="Auto">A</option>
+          <option value="Manual">B</option>
+        </select>
+        <div *ngIf=" registerForm.controls['department'].errors" class="invalid-feedback">
+          <div *ngIf="registerForm.controls['department'].errors['required']">Select your department!!
+         
+          </div>
+        </div>
+      </div>
+
+      <button class="myButton mb-2" mat-raised-button color="primary" type="submit">Post
+        My
+        Ad</button>
+    </form>
+  </div>
+</div>

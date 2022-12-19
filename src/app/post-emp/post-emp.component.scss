@@ -1,0 +1,63 @@
+.myscroll {
+  overflow-y: auto;
+}
+
+.layer {
+  background-color: #fff7f2; //rgba(250, 222, 221, 0.938);
+  padding-left: 10px;
+  padding-right: 10px;
+  justify-items: center;
+}
+
+.formCss {
+  margin: auto;
+  width: 500px;
+
+  border: black;
+  border-color: #ffffff;
+  height: auto;
+  width: 80%;
+  border-style: solid;
+  border-radius: 1px;
+  background-color: #ffffff;
+  max-width: 100%;
+  margin: auto;
+  align-items: center;
+  padding-left: 100px;
+  padding-right: 100px;
+}
+
+.myButton {
+  height: 40px !important;
+  width: 100% !important;
+}
+
+//media quries
+@media screen and (max-device-width: 1180px) {
+  .myscroll {
+    width: auto;
+    // margin-left: 5px;
+    margin-right: 0px;
+    overflow-x: hidden;
+  }
+
+  .formCss {
+    width: 650px;
+    // margin-left: 10px;
+    // background-color: lightgreen;
+    padding-left: 10px;
+    padding-right: 10px;
+    overflow-x: hidden;
+  }
+  .layer {
+    width: auto;
+    height: auto;
+    // background-color: red;
+    // padding-left: 35px;
+    background-color: white;
+    overflow-x: hidden;
+  }
+}
+
+@media only screen and (max-width: 767px) {
+}

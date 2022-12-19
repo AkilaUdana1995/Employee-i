@@ -1,0 +1,135 @@
+// Custom Theming for Angular Material
+// For more information: https://material.angular.io/guide/theming
+@import "~@angular/material/theming";
+// Plus imports for other components in your app.
+
+// Include the common styles for Angular Material. We include this here so that you only
+// have to load a single css file for Angular Material in your app.
+// Be sure that you only ever include this mixin once!
+@include mat-core();
+
+$my-accent: (
+  50: #EFEBE9,
+  100: #D7CCC8,
+  200: #BCAAA4,
+  300: #A1887F,
+  400: #8D6E63,
+  500: #795548,
+  600: #6D4C41,
+  700: #5D4037,
+  800: #4E342E,
+  900: #3E2723,
+  A100: #ffeced,
+  A200: #ffb9be,
+  A400: #ff868e,
+  A700: #ff6d76,
+  contrast: (50: #000000,
+    100: #000000,
+    200: #000000,
+    300: #000000,
+    400: #ffffff,
+    500: #ffffff,
+    600: #ffffff,
+    700: #ffffff,
+    800: #ffffff,
+    900: #ffffff,
+    A100: #000000,
+    A200: #000000,
+    A400: #000000,
+    A700: #000000,
+  ),
+);
+
+$my-primary: (
+
+// 50:#00C853,
+// 100:#FFF9C4,
+// 200:#FFF59D,
+// 300:#FFF176,
+// 400:#FFEE58,
+// 500:#FFEB3B,
+// 600:#FDD835,
+// 700:#FBC02D,
+// 800:#F9A825,
+// 900:#F57F17,
+// A100:#FFFF8D,
+// A200:#FFFF00,
+// A400:#FFEA00,
+// A700:#00C853,
+  50: #fe6e0d,
+  100: #ffd4b6,
+  200: #ffb786,
+  300: #fe9a56,
+  400: #fe8431,
+  500: #fe6e0d,
+  600: #fe660b,
+  700: #fe5b09,
+  800: #fe5107,
+  900: #fd3f03,
+  A100: #ffffff,
+  A200: #fff3f1,
+  A400: #ffcabe,
+  A700: #ffb5a4,
+  contrast: (50: #ffffff,
+    100: #ffffff,
+    200: #ffffff,
+    300: #ffffff,
+    400: #ffffff,
+    500: #ffffff,
+    600: #ffffff,
+    700: #ffffff,
+    800: #ffffff,
+    900: #ffffff,
+    A100: #000000,
+    A200: #000000,
+    A400: #000000,
+    A700: #000000,
+  ),
+);
+
+// Define the palettes for your theme using the Material Design palettes available in palette.scss
+// (imported above). For each palette, you can optionally specify a default, lighter, and darker
+// hue. Available color palettes: https://material.io/design/color/
+$basic-primary: mat-palette($my-primary);
+$basic-accent: mat-palette($my-accent, A200, A100, A400);
+
+// The warn palette is optional (defaults to red).
+$basic-warn: mat-palette($mat-red);
+
+// Create the theme object (a Sass map containing all of the palettes).
+$basic-theme: mat-light-theme($basic-primary, $basic-accent, $basic-warn);
+
+// Include theme styles for core and each component used in your app.
+// Alternatively, you can import and @include the theme mixins for each component
+// that you are using.
+@include angular-material-theme($basic-theme);
+
+/* You can add global styles to this file, and also import other style files */
+
+html,
+body {
+  height: 100%;
+  //background-color: #D3D3D3;
+}
+
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+.center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.pointer {
+  cursor: pointer;
+}
+
+.bg-orange {
+  background-color: #fd3f03;
+}
+
+
