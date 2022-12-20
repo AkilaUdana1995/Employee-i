@@ -65,7 +65,11 @@ export class PostEmpComponent implements OnInit {
     private dialog: MatDialog
   ) {
     if (data) {
-      this.loadEMPdata();
+      //this.loadEmployeeData('XMdtZyzFm6nJiMmA4XxQ');
+      //this.data.service.Emp_Id
+      this.loadEmployeeData(this.data.service.Emp_Id);
+      console.log(this.data.service.Emp_Id+"const emp id");
+      
     }
 
   }
@@ -198,7 +202,7 @@ export class PostEmpComponent implements OnInit {
       }
     })
   }
-  closeDialog() {
-    this.dialogRef.close();
-  }
+  // closeDialog() {
+  //   this.dialogRef.close();
+  // }
 }

@@ -52,7 +52,7 @@
 
       <div class="form-group mb-2">
         <label for="exampleInputEmail1">EMP code</label>
-        <input readonly formControlName="EMP_code" type="text" class="form-control" id="EMP_code"
+        <input  formControlName="EMP_code" type="text" class="form-control" id="EMP_code"
           aria-describedby="emailHelp" placeholder="DCS44UI"
           [ngClass]="{ 'is-invalid': registerForm.controls['EMP_code'].touched && registerForm.controls['EMP_code'].errors }">
 
@@ -126,4 +126,4 @@
 </div>
 
 
-<button class="btn btn-primary" (click)="closeDialog()"> click me</button>
+<button (click)="loadEMPdata()" class="btn btn-primary" > click me</button>

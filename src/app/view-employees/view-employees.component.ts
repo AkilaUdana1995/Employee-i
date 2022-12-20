@@ -41,19 +41,19 @@ export class ViewEmployeesComponent implements OnInit {
     })
   }
 
-  openDialog(service: any) {
-    this.dialog.open(PostEmpComponent);
-    let dialogRef = this.dialog.open(PostEmpComponent, { data: { service } })
+  openDialog(service:Employees) {
+    // this.dialog.open(PostEmpComponent);
+    let dialogRef = this.dialog.open(PostEmpComponent, {data: {service} })
 
   }
 
-  private readonly postAction$ = new Subject();
+  //   private readonly postAction$ = new Subject();
 
-posts$ = this.postAction$.pipe(
-  startWith(''),
-  concatMap(()=> {
-    return this.databaseManager.getEmployees(); // this will be your http get request
-  }),
-)
+  // posts$ = this.postAction$.pipe(
+  //   startWith(''),
+  //   concatMap(()=> {
+  //     return this.databaseManager.getEmployees(); // this will be your http get request
+  //   }),
+  // )
 
 }
