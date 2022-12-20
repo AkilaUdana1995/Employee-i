@@ -105,10 +105,13 @@
         </div>
       </div>
 
-      <button [disabled]="!registerForm.valid" (click)="registerEmployee()" class="myButton mb-2" mat-raised-button
+      <button [disabled]="!registerForm.valid" (click)="postEMPdata()" class="myButton mb-2" mat-raised-button
         color="primary" type="submit">Add new
         Employee
       </button>
     </form>
   </div>
 </div>
+
+
+<button class="btn btn-primary" (click)="loadEMPdata()"> click me</button>

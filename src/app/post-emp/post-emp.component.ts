@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Inject, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Departments } from './../dataSets/departments';
 import { DatabaseManagerService } from './../database-manager.service';
@@ -7,6 +7,8 @@ import { NavigationEnd, Router } from '@angular/router';
 //sweet alert
 import Swal from 'sweetalert2'
 import { Routes } from '@angular/router';
+import { Employees } from './../Models/employee';
+import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 
 
 @Component({
@@ -56,12 +58,21 @@ export class PostEmpComponent implements OnInit {
   );
 
 
-  constructor(private databaseManager: DatabaseManagerService, public router: Router) { }
+  constructor(private databaseManager: DatabaseManagerService,
+    public router: Router,
+    @Inject(MAT_DIALOG_DATA) public data: any,
+    public dialogRef: MatDialogRef<PostEmpComponent>
+  ) {
+    if (data) {
+      this.loadEMPdata();
+    }
+
+  }
 
   ngOnInit(): void {
   }
 
-  registerEmployee() {
+  postEMPdata() {
     const {
       name,
       address,
@@ -100,4 +111,64 @@ export class PostEmpComponent implements OnInit {
       'success'
     )
   }
+
+
+  //method to load employee data to form using default patching techniques
+  loadEmployeeData(Emp_Id: string) {
+    this.databaseManager.getSingleEmployeeData(Emp_Id).then((element: Employees) => {
+      let {
+        name,
+        address,
+        NIC,
+        department,
+        EMP_code,
+        gender,
+      } = element;
+      this.registerForm.patchValue({
+        name,
+        address,
+        NIC,
+        department,
+        EMP_code,
+        gender,
+      })
+    })
+  }
+
+
+  //fill data which are imported to this component(POST-EMP-COMPONENT) via Dialog from VIEW-ENPLOYEES-COMPONENT
+  loadEMPdata() {
+    this.registerForm.patchValue({
+      name: this.data.service.name,
+      address: this.data.service.address,
+      NIC: this.data.service.NIC,
+      department: this.data.service.department,
+      EMP_code: this.data.service.EMP_code,
+      gender: this.data.service.gender,
+    })
+  };
+
+  editEMPdata() {
+
+    const {
+      //editable fields
+      name,
+      address,
+      NIC,
+      department,
+      EMP_code,
+      gender,
+    } = this.registerForm.value
+
+    let updatedModel = {
+      Emp_Id: this.data.service.Emp_Id,
+      name,
+      address,
+      NIC,
+      department,
+      EMP_code,
+      gender
+    }
+  }
+
 }

@@ -13,15 +13,16 @@ import { getFirestore, provideFirestore } from '@angular/fire/firestore';
 
 
 //from angular material
-import {MatIconModule} from '@angular/material/icon';
-import {MatDividerModule} from '@angular/material/divider';
-import {MatButtonModule} from '@angular/material/button';
-import {MatFormFieldModule} from '@angular/material/form-field';
+import { MatIconModule } from '@angular/material/icon';
+import { MatDividerModule } from '@angular/material/divider';
+import { MatButtonModule } from '@angular/material/button';
+import { MatFormFieldModule } from '@angular/material/form-field';
 import { FormsModule } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
 import { environment } from 'src/environments/environment';
 import { FIREBASE_OPTIONS } from '@angular/fire/compat';
 import { ViewEmployeesComponent } from './view-employees/view-employees.component';
+import { MatDialogModule, MatDialogRef, MAT_DIALOG_DATA, } from '@angular/material/dialog';
 
 
 
@@ -41,11 +42,14 @@ import { ViewEmployeesComponent } from './view-employees/view-employees.componen
     MatFormFieldModule,
     FormsModule,
     ReactiveFormsModule,
+    MatDialogModule,
     provideFirebaseApp(() => initializeApp(environment.firebaseConfig)),
     provideFirestore(() => getFirestore()),
   ],
   providers: [
     { provide: FIREBASE_OPTIONS, useValue: environment.firebaseConfig },
+    { provide: MatDialogRef, useValue: {} },
+    { provide: MAT_DIALOG_DATA, useValue: {} },
   ],
   bootstrap: [AppComponent]
 })
