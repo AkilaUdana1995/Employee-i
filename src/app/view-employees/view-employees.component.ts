@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
+import { TIMEOUT } from 'dns';
 import { DatabaseManagerService } from './../database-manager.service';
 import { Employees } from './../Models/employee';
 import { PostEmpComponent } from './../post-emp/post-emp.component';
@@ -14,7 +15,8 @@ export class ViewEmployeesComponent implements OnInit {
   public employeeData: Array<Employees> = new Array<Employees>();
   constructor(private databaseManager: DatabaseManagerService,
     private dialog: MatDialog) {
-    this.getAllEmployees()
+    this.getAllEmployees();
+    // this.closeDialog();
 
 
 
@@ -40,7 +42,16 @@ export class ViewEmployeesComponent implements OnInit {
 
   openDialog(service: any) {
     this.dialog.open(PostEmpComponent);
-    let dialogRef = this.dialog.open(PostEmpComponent, { data: { service } });
+    let dialogRef = this.dialog.open(PostEmpComponent, { data: { service } })
+
   }
+
+  // closeDialog() {
+  //   setTimeout(() => {
+  //     this.dialog.closeAll();
+  //     console.log("mn gawataawa");
+
+  //   }, 10000);
+  // }
 
 }

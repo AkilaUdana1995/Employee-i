@@ -1,8 +1,15 @@
+<div>
+  <span class="col-1 col-lg-1 material-icons p-0 row"
+    style="margin-left: auto;margin-right: 0;margin-top:0;padding-right: 10px;" mat-dialog-close>close</span>
+</div>
+
 <div class="myscroll bg-primary">
   <div class="layer bg-warning" style="min-height: 79.39vh;">
     <form class="formCss mt-5" [formGroup]="registerForm">
 
       <h1 style="text-align: center; margin-top: 10px;"><strong>Fill in the details</strong> </h1>
+
+
       <hr>
       <br>
       <div class="form-group mb-2">
@@ -45,8 +52,8 @@
 
       <div class="form-group mb-2">
         <label for="exampleInputEmail1">EMP code</label>
-        <input formControlName="EMP_code" type="text" class="form-control" id="EMP_code" aria-describedby="emailHelp"
-          placeholder="DCS44UI"
+        <input readonly formControlName="EMP_code" type="text" class="form-control" id="EMP_code"
+          aria-describedby="emailHelp" placeholder="DCS44UI"
           [ngClass]="{ 'is-invalid': registerForm.controls['EMP_code'].touched && registerForm.controls['EMP_code'].errors }">
 
         <div *ngIf=" registerForm.controls['EMP_code'].errors" class="invalid-feedback">
@@ -109,9 +116,14 @@
         color="primary" type="submit">Add new
         Employee
       </button>
+
+      <button [disabled]="!registerForm.valid" (click)="editEMPdata()" class="myButton mb-2" mat-raised-button
+        color="accent" type="submit">Update
+        Employee
+      </button>
     </form>
   </div>
 </div>
 
 
-<button class="btn btn-primary" (click)="loadEMPdata()"> click me</button>
+<button class="btn btn-primary" (click)="closeDialog()"> click me</button>

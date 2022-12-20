@@ -8,7 +8,7 @@ import { NavigationEnd, Router } from '@angular/router';
 import Swal from 'sweetalert2'
 import { Routes } from '@angular/router';
 import { Employees } from './../Models/employee';
-import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 
 
 @Component({
@@ -61,7 +61,8 @@ export class PostEmpComponent implements OnInit {
   constructor(private databaseManager: DatabaseManagerService,
     public router: Router,
     @Inject(MAT_DIALOG_DATA) public data: any,
-    public dialogRef: MatDialogRef<PostEmpComponent>
+    public dialogRef: MatDialogRef<PostEmpComponent>,
+    private dialog: MatDialog
   ) {
     if (data) {
       this.loadEMPdata();
@@ -112,6 +113,16 @@ export class PostEmpComponent implements OnInit {
     )
   }
 
+  updatedAlert() {
+    Swal.fire({
+      position: 'top-end',
+      icon: 'success',
+      title: 'Updated Sucessfully!!',
+      showConfirmButton: false,
+      timer: 1500
+    })
+
+  }
 
   //method to load employee data to form using default patching techniques
   loadEmployeeData(Emp_Id: string) {
@@ -169,6 +180,25 @@ export class PostEmpComponent implements OnInit {
       EMP_code,
       gender
     }
-  }
+    this.databaseManager.updateEmployees(this.data.service.Emp_Id, updatedModel).then((res) => {
+      if (res) {
 
+        setTimeout(() => {
+          this.dialog.closeAll();
+          console.log("awooooo");
+
+        }, 900);
+
+        this.updatedAlert();
+        setTimeout(() => {
+          this.router.navigate(['/viewEmployees']);
+        }, 1000);
+
+
+      }
+    })
+  }
+  closeDialog() {
+    this.dialogRef.close();
+  }
 }
