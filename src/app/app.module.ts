@@ -21,13 +21,15 @@ import { FormsModule } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
 import { environment } from 'src/environments/environment';
 import { FIREBASE_OPTIONS } from '@angular/fire/compat';
+import { ViewEmployeesComponent } from './view-employees/view-employees.component';
 
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    PostEmpComponent
+    PostEmpComponent,
+    ViewEmployeesComponent
   ],
   imports: [
     BrowserModule,
