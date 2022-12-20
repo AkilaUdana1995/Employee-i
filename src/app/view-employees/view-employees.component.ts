@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { TIMEOUT } from 'dns';
+import { concatMap, startWith, Subject } from 'rxjs';
 import { DatabaseManagerService } from './../database-manager.service';
 import { Employees } from './../Models/employee';
 import { PostEmpComponent } from './../post-emp/post-emp.component';
@@ -46,12 +47,13 @@ export class ViewEmployeesComponent implements OnInit {
 
   }
 
-  // closeDialog() {
-  //   setTimeout(() => {
-  //     this.dialog.closeAll();
-  //     console.log("mn gawataawa");
+  private readonly postAction$ = new Subject();
 
-  //   }, 10000);
-  // }
+posts$ = this.postAction$.pipe(
+  startWith(''),
+  concatMap(()=> {
+    return this.databaseManager.getEmployees(); // this will be your http get request
+  }),
+)
 
 }
