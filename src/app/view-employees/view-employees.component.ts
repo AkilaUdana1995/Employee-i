@@ -5,6 +5,7 @@ import { concatMap, startWith, Subject } from 'rxjs';
 import { DatabaseManagerService } from './../database-manager.service';
 import { Employees } from './../Models/employee';
 import { PostEmpComponent } from './../post-emp/post-emp.component';
+import { EditEmpComponent } from './../edit-emp/edit-emp.component';
 
 @Component({
   selector: 'app-view-employees',
@@ -43,7 +44,7 @@ export class ViewEmployeesComponent implements OnInit {
 
   openDialog(service:Employees) {
     // this.dialog.open(PostEmpComponent);
-    let dialogRef = this.dialog.open(PostEmpComponent, {data: {service} })
+    let dialogRef = this.dialog.open(EditEmpComponent, {data: {service} })
 
   }
 

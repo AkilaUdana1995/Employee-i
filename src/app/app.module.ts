@@ -23,6 +23,7 @@ import { environment } from 'src/environments/environment';
 import { FIREBASE_OPTIONS } from '@angular/fire/compat';
 import { ViewEmployeesComponent } from './view-employees/view-employees.component';
 import { MatDialogModule, MatDialogRef, MAT_DIALOG_DATA, } from '@angular/material/dialog';
+import { EditEmpComponent } from './edit-emp/edit-emp.component';
 
 
 
@@ -30,7 +31,8 @@ import { MatDialogModule, MatDialogRef, MAT_DIALOG_DATA, } from '@angular/materi
   declarations: [
     AppComponent,
     PostEmpComponent,
-    ViewEmployeesComponent
+    ViewEmployeesComponent,
+    EditEmpComponent
   ],
   imports: [
     BrowserModule,
