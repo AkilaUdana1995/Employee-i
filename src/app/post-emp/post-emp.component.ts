@@ -1,14 +1,13 @@
-import { Component, Inject, OnInit } from '@angular/core';
+import { Component,OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Departments } from './../dataSets/departments';
 import { DatabaseManagerService } from './../database-manager.service';
-import { NavigationEnd, Router } from '@angular/router';
+import { Router } from '@angular/router';
 
 //sweet alert
 import Swal from 'sweetalert2'
-import { Routes } from '@angular/router';
 import { Employees } from './../Models/employee';
-import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { MatDialog } from '@angular/material/dialog';
 
 
 @Component({
@@ -19,7 +18,7 @@ import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dial
 export class PostEmpComponent implements OnInit {
   Departments = Departments.empDepartments;
   public isUpdateRecord: boolean = false
-  public EMP_Id:string=""
+  public EMP_Id: string = ""
   genderList: any = ['male ', 'female', 'prfer not to say'];
   //getting data through a form with validators
   registerForm = new FormGroup(
@@ -59,18 +58,10 @@ export class PostEmpComponent implements OnInit {
     }
   );
 
-
   constructor(private databaseManager: DatabaseManagerService,
     public router: Router,
     private dialog: MatDialog
   ) {
-    // if (data && this.isUpdateRecord == true) {
-    //   //this.loadEmployeeData('XMdtZyzFm6nJiMmA4XxQ');
-    //   this.loadEMPdata();
-    //   //this.loadEmployeeData(this.data.service.Emp_Id);
-    //   //console.log(this.data.service.Emp_Id + "const emp id");
-
-    // }
 
   }
 
@@ -150,60 +141,4 @@ export class PostEmpComponent implements OnInit {
     })
   }
 
-
-  //fill data which are imported to this component(POST-EMP-COMPONENT) via Dialog from VIEW-ENPLOYEES-COMPONENT
-  // loadEMPdata() {
-  //   this.isUpdateRecord = true;
-  //   this.registerForm.patchValue({
-  //     name: this.data.service.name,
-  //     address: this.data.service.address,
-  //     NIC: this.data.service.NIC,
-  //     department: this.data.service.department,
-  //     EMP_code: this.data.service.EMP_code,
-  //     gender: this.data.service.gender,
-  //   })
-  // };
-
-  // editEMPdata() {
-
-  //   const {
-  //     //editable fields
-  //     name,
-  //     address,
-  //     NIC,
-  //     department,
-  //     EMP_code,
-  //     gender,
-  //   } = this.registerForm.value
-
-  //   let updatedModel = {
-  //     Emp_Id: this.data.service.Emp_Id,
-  //     name,
-  //     address,
-  //     NIC,
-  //     department,
-  //     EMP_code,
-  //     gender
-  //   }
-  //   this.databaseManager.updateEmployees(this.data.service.Emp_Id, updatedModel).then((res) => {
-  //     if (res) {
-
-  //       setTimeout(() => {
-  //         this.dialog.closeAll();
-  //         console.log("awooooo");
-
-  //       }, 900);
-
-  //       this.updatedAlert();
-  //       setTimeout(() => {
-  //         this.router.navigate(['/viewEmployees']);
-  //       }, 1000);
-
-
-  //     }
-  //   })
-  // }
-  // closeDialog() {
-  //   this.dialogRef.close();
-  // }
 }

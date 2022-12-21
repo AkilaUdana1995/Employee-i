@@ -2,12 +2,10 @@ import { Component, Inject, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Departments } from './../dataSets/departments';
 import { DatabaseManagerService } from './../database-manager.service';
-import { NavigationEnd, Router } from '@angular/router';
+import { Router } from '@angular/router';
 
 //sweet alert
 import Swal from 'sweetalert2'
-import { Routes } from '@angular/router';
-import { Employees } from './../Models/employee';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 
 
@@ -68,7 +66,6 @@ export class EditEmpComponent implements OnInit {
     }
 
   }
-
 
   ngOnInit(): void {
   }
