@@ -1,5 +1,5 @@
 <div>
-  <span class="col-1 col-lg-1 material-icons p-0 row"
+  <span class="col-1 col-lg-1 material-icons p-0 row" (click)="closeMenu()"
     style="margin-left: auto;margin-right: 0;margin-top:0;padding-right: 10px;" mat-dialog-close>close</span>
 </div>
 
@@ -52,8 +52,8 @@
 
       <div class="form-group mb-2">
         <label for="exampleInputEmail1">EMP code</label>
-        <input  formControlName="EMP_code" type="text" class="form-control" id="EMP_code"
-          aria-describedby="emailHelp" placeholder="DCS44UI"
+        <input formControlName="EMP_code" type="text" class="form-control" id="EMP_code" aria-describedby="emailHelp"
+          placeholder="DCS44UI"
           [ngClass]="{ 'is-invalid': registerForm.controls['EMP_code'].touched && registerForm.controls['EMP_code'].errors }">
 
         <div *ngIf=" registerForm.controls['EMP_code'].errors" class="invalid-feedback">
@@ -116,7 +116,7 @@
         color="primary" type="submit">Add new
         Employee
       </button>
-<!-- 
+      <!-- 
       <button [disabled]="!registerForm.valid" (click)="editEMPdata()" class="myButton mb-2" mat-raised-button
         color="accent" type="submit">Update
         Employee

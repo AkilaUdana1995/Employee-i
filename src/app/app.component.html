@@ -1,7 +1,8 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
   <div class="container-fluid">
     <a class="navbar-brand" href="#">Navbar</a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
@@ -10,13 +11,13 @@
           <a class="nav-link active" aria-current="page" href="#">Home</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link"  routerLink="/employee">Register New Employee</a>
+          <a class="nav-link" routerLink="/employee">Register New Employee</a>
         </li>
 
         <li class="nav-item">
-          <a class="nav-link"  routerLink="/viewEmployees">View Employee List</a>
+          <a class="nav-link" routerLink="/viewEmployees">View Employee List</a>
         </li>
-        
+
 
         <!-- <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -40,17 +41,16 @@
     </div>
   </div>
 </nav>
-<!-- <div style="min-height: 83.69vh;">
-</div> -->
-<div class="router-container">
-  <router-outlet></router-outlet>
-</div>
+<div style="min-height: 83.69vh;">
+  <div class="router-container">
+    <router-outlet></router-outlet>
+  </div>
 
-<footer class="footer-container" style="background-color: #ff6c0c;">
-  <div class="text-center text-white pt-3 pb-2" style="cursor: pointer;">
-    <span routerLink="/terms-and-conditions">Terms & Conditions</span>
-  </div>
-  <div class="footer-copyright text-center pb-3">© 2022 Copyright
-    <a style="color: white;" href="https://vehicledealz.lk/"> vehicledealz.lk</a>
-  </div>
-</footer>
+  <footer class="footer-container" style="background-color: #ff6c0c;">
+    <div class="text-center text-white pt-3 pb-2" style="cursor: pointer;">
+      <span routerLink="/terms-and-conditions">Terms & Conditions</span>
+    </div>
+    <div class="footer-copyright text-center pb-3">© 2022 Copyright
+      <a style="color: white;" href="https://vehicledealz.lk/"> vehicledealz.lk</a>
+    </div>
+  </footer>

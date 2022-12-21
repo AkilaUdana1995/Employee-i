@@ -1,4 +1,4 @@
-import { Component,OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Departments } from './../dataSets/departments';
 import { DatabaseManagerService } from './../database-manager.service';
@@ -16,6 +16,8 @@ import { MatDialog } from '@angular/material/dialog';
   styleUrls: ['./post-emp.component.scss']
 })
 export class PostEmpComponent implements OnInit {
+
+
   Departments = Departments.empDepartments;
   public isUpdateRecord: boolean = false
   public EMP_Id: string = ""
@@ -139,6 +141,13 @@ export class PostEmpComponent implements OnInit {
         gender,
       })
     })
+  }
+
+
+  closeMenu() {
+    this.dialog.closeAll();
+    console.log("awa");
+
   }
 
 }

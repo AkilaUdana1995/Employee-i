@@ -24,6 +24,7 @@ import { FIREBASE_OPTIONS } from '@angular/fire/compat';
 import { ViewEmployeesComponent } from './view-employees/view-employees.component';
 import { MatDialogModule, MatDialogRef, MAT_DIALOG_DATA, } from '@angular/material/dialog';
 import { EditEmpComponent } from './edit-emp/edit-emp.component';
+import { HomeComponent } from './home/home.component';
 
 
 
@@ -32,7 +33,8 @@ import { EditEmpComponent } from './edit-emp/edit-emp.component';
     AppComponent,
     PostEmpComponent,
     ViewEmployeesComponent,
-    EditEmpComponent
+    EditEmpComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,127 @@
+
+// /* ===========================
+//       ====== Medua Query for Search Box ======
+//       =========================== */
+
+@media only screen and (min-width: 300px) and (max-width: 780px) {
+    .searchBar {
+        width: 90%;
+        margin: 0 auto;
+    }
+}
+
+//test code; Without Media Queries
+//
+/* Create two unequal columns that floats next to each other */
+.column {
+    float: left;
+    padding: 10px;
+}
+
+.left {
+    width: 30%;
+}
+
+.right {
+    width: 70%;
+}
+
+.shadow {
+    box-shadow: rgba(241, 117, 59, 0.692) 0px 2px 4px 0px, rgba(241, 102, 9, 0.637) 0px 2px 16px 0px;
+}
+
+.other-btns:hover {
+    box-shadow: rgba(241, 117, 59, 0.692) 0px 2px 4px 0px, rgba(241, 102, 9, 0.637) 0px 2px 16px 0px;
+}
+
+//test code end
+
+//card**************do not edit*******//
+.card {
+    //background-color: dodgerblue;
+    color: rgb(17, 16, 16);
+    padding: 1rem;
+    height: 7rem;
+    border: hidden;
+    cursor: pointer;
+
+    // margin: 0.5rem;
+}
+
+.cards {
+    margin-top: 2vmin;
+    max-width: 1200px;
+    //margin: 0 0.5rem auto 10rem;
+
+    display: grid;
+    grid-gap: 0.5rem;
+    margin-bottom: 6vmin;
+    //background-color: yellow;
+
+    //padding-left: 20px;
+}
+
+.wish-badge {
+    position: absolute;
+    margin-top: -5px;
+    width: 40px;
+}
+
+@media only screen and (min-width: 600px) {
+    .cards {
+        grid-template-columns: repeat(2, 1fr);
+        //margin: 0 auto;
+    }
+
+    .left {
+        width: 35%;
+    }
+
+    .right {
+        width: 65%;
+    }
+}
+
+@media only screen and (min-width: 900px) {
+    .cards {
+        grid-template-columns: repeat(3, 1fr);
+        //margin: 0 auto;
+    }
+
+    .left {
+        width: 35%;
+    }
+
+    .right {
+        width: 65%;
+    }
+
+    // .wrapper {
+    //     width: 100%;
+    //     max-width: 41.25rem;
+    //     background-color: rgb(233, 229, 34);
+    //     // padding-bottom: 500px;
+    //     //margin: rem auto;
+    // }
+}
+
+@media only screen and (max-width: 499px) {
+
+    .small-text {
+        font-size: .9em;
+    }
+
+    .wish-badge{
+        width: 5%;
+    }
+}
+
+@media only screen and (max-width: 599px) {
+    .wrapper {
+        margin: 15px 0px 15px;
+    }
+
+    // .label{
+    //     display: none;
+    // }
+}
