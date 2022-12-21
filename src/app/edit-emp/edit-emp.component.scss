@@ -11,20 +11,21 @@
   
   .formCss {
     margin: auto;
-    width: 500px;
+    //width: 500px;
   
     border: black;
     border-color: #ffffff;
     height: auto;
-    width: 80%;
+    width: 100%;
     border-style: solid;
     border-radius: 1px;
     background-color: #ffffff;
     max-width: 100%;
+    min-width: 90%;
     margin: auto;
     align-items: center;
-    padding-left: 100px;
-    padding-right: 100px;
+    padding-left: 10px;
+    padding-right: 10px;
   }
   
   .myButton {
@@ -42,7 +43,7 @@
     }
   
     .formCss {
-      width: 650px;
+    //  width: 950px;
       // margin-left: 10px;
       // background-color: lightgreen;
       padding-left: 10px;

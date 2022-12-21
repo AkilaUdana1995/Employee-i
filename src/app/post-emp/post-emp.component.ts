@@ -95,7 +95,7 @@ export class PostEmpComponent implements OnInit {
     }, 1000);
 
     setTimeout(() => {
-      this.router.navigate(['/viewEmployees']);
+      this.router.navigate(['/']);
     }, 5000);
 
 

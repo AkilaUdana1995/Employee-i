@@ -1,37 +1,50 @@
-<label class="label center" style="font-size: medium"><strong>Browse items by category</strong> </label>
+<label class="label center m-2" style="font-size: medium"><strong>Quick Links</strong> </label>
 
 <div class="cards px-3" style="margin-left: auto; margin-right: auto;min-height: 77.89vh;">
     <div class="card">
-        <div class="row" style="margin-bottom: 10px;">
+        <div class="row" style="margin-bottom: 10px;" routerLink="/employee">
             <div class="column left text-center" style="background-color:white;">
-                <img src="../../assets/images/disc-brake.png" alt="scooter"
+                <img src="../../assets/images/addUser.png" alt="scooter"
                     style="margin: auto;height:72px;width:72px;">
             </div>
             <div class="column right" style="background-color:white;">
-                <p style="font-size: larger; padding-top: 20px;">Spare Parts</p>
+                <p style="font-size: larger; padding-top: 20px;">Add New Emplooyee</p>
             </div>
         </div>
     </div>
     <div class="card">
-        <div class="row" style="margin-bottom: 10px;">
+        <div class="row" style="margin-bottom: 10px;" routerLink="/viewEmployees">
             <div class="column left text-center" style="background-color:white;">
-                <img src="../../assets/images/disc-brake.png" alt="scooter"
+                <img src="../../assets/images/group.png" alt="scooter"
                     style="margin: auto;height:72px;width:72px;">
             </div>
             <div class="column right" style="background-color:white;">
-                <p style="font-size: larger; padding-top: 20px;">Spare Parts</p>
+                <p style="font-size: larger; padding-top: 20px;">Edit/Delete Employees</p>
             </div>
         </div>
     </div>
-    <div class="card">
-        <div class="row" style="margin-bottom: 10px;">
+    <div class="card dimmer" aria-readonly="true">
+        <div class="row" style="margin-bottom: 10px;" routerLink="/viewEmployees">
             <div class="column left text-center" style="background-color:white;">
-                <img src="../../assets/images/disc-brake.png" alt="scooter"
+                <img src="../../assets/images/myAccount.png" alt="scooter"
                     style="margin: auto;height:72px;width:72px;">
             </div>
             <div class="column right" style="background-color:white;">
-                <p style="font-size: larger; padding-top: 20px;">Spare Parts</p>
+                <p style="font-size: larger; padding-top: 20px;">My Account</p>
+                <mat-hint style="font-size:x-small">Comming soon</mat-hint>
             </div>
         </div>
     </div>
+
+    <!-- <div class="card">
+        <div class="row" style="margin-bottom: 10px;" routerLink="/viewEmployees">
+            <div class="column left text-center" style="background-color:white;">
+                <img src="../../assets/images/myAccount.png" alt="scooter"
+                    style="margin: auto;height:72px;width:72px;">
+            </div>
+            <div class="column right" style="background-color:white;">
+                <p style="font-size: larger; padding-top: 20px;">My Account</p>
+            </div>
+        </div>
+    </div> -->
 </div>

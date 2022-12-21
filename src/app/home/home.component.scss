@@ -1,4 +1,3 @@
-
 // /* ===========================
 //       ====== Medua Query for Search Box ======
 //       =========================== */
@@ -67,6 +66,13 @@
     width: 40px;
 }
 
+.dimmer {
+    // background:rgb(77, 72, 72);
+    opacity: 0.4;
+    top: 0;
+    left: 0;
+}
+//media quries
 @media only screen and (min-width: 600px) {
     .cards {
         grid-template-columns: repeat(2, 1fr);
@@ -106,12 +112,11 @@
 }
 
 @media only screen and (max-width: 499px) {
-
     .small-text {
-        font-size: .9em;
+        font-size: 0.9em;
     }
 
-    .wish-badge{
+    .wish-badge {
         width: 5%;
     }
 }
