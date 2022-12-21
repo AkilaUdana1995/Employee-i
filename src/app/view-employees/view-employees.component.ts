@@ -42,11 +42,20 @@ export class ViewEmployeesComponent implements OnInit {
     })
   }
 
-  openDialog(service:Employees) {
+  //this method is for take data into "EditEmpComponent"
+  openDialog(service: Employees) {
     // this.dialog.open(PostEmpComponent);
-    let dialogRef = this.dialog.open(EditEmpComponent, {data: {service} })
+    let dialogRef = this.dialog.open(EditEmpComponent, { data: { service } })
 
   }
+
+  //this method will bring an id for "EditEMPComponent"
+  openDialog2(id: any, service: Employees) {
+    // this.dialog.open(PostEmpComponent);
+    let dialogRef = this.dialog.open(EditEmpComponent, { data: { id, service } })
+
+  }
+
 
   //   private readonly postAction$ = new Subject();
 

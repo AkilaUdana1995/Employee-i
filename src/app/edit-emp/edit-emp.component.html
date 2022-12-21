@@ -115,13 +115,13 @@
             </div>
 
 
-            <button  (click)="editEMPdata()" class="myButton mb-2" mat-raised-button
+            <button *ngIf="state==undefined" (click)="editEMPdata()" class="myButton mb-2" mat-raised-button
                 color="accent" type="submit">Update
                 Employee
             </button>
 
-            <button [hidden]="!isUpdated"   (click)="deleteEMPdata()" class="myButton mb-2" mat-raised-button
-                color="warn" type="submit">Delete
+            <button *ngIf="state!==null" [hidden]="state==undefined" (click)="deleteEMPdata()" class="myButton mb-2"
+                mat-raised-button color="warn" type="submit">Delete
                 Employee
             </button>
 
