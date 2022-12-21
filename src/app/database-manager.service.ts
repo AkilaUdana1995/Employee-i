@@ -89,15 +89,15 @@ export class DatabaseManagerService {
     })
   }
 
-  //method to delete Employee
-  // deleteTeacherClass(myclass: Class): Promise<void> {
-  //   return this.teacherRef.doc(myclass.teacherId).collection(DatabaseManager.DBPATH_TEACHER_CLASS).doc(myclass.classId).delete();
-  // }
 
-
-  deleteEmployee(Emp_Id: string,) {
-    return new Promise<void>((resolve, reject) => {
-      this.EmployeesRef.doc(Emp_Id).delete();
+  //method to delete employee
+  deleteEmployee(EMP_Id: string) {
+    return new Promise<any>((resolve, reject) => {
+      this.EmployeesRef.doc(EMP_Id).delete().then(e => {
+        resolve(true);
+      }).catch(err => {
+        reject(err);
+      })
     })
   }
 

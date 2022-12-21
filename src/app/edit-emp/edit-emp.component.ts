@@ -81,6 +81,8 @@ export class EditEmpComponent implements OnInit {
 
   }
 
+
+  //method to load editable feilds to form
   loadEMPdata() {
     this.registerForm.patchValue({
       name: this.data.service.name,
@@ -92,6 +94,7 @@ export class EditEmpComponent implements OnInit {
     })
   };
 
+  //method to edit EMP data, using form
   editEMPdata() {
 
     const {
@@ -128,6 +131,41 @@ export class EditEmpComponent implements OnInit {
         }, 1000);
 
 
+      }
+    })
+  }
+
+  test() {
+    console.log(this.data.service.Emp_Id + "emp id eka");
+    this.databaseManager.deleteEmployee(this.data.service.Emp_Id);
+    console.log("deleted");
+
+  }
+
+  deleteEMPdata() {
+    console.log(this.data.service.EMP_Id + "emp id eka mulin");
+    Swal.fire({
+      title: 'Are you sure?',
+      text: "You won't be able to revert this!",
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Yes, delete it!'
+    }).then((result) => {
+      if (result.isConfirmed) {
+        this.databaseManager.deleteEmployee(this.data.service.Emp_Id);
+        console.log(this.data.service.EMP_Id + "emp id eka 2");
+
+        console.log("methnta awa delete eke");
+        setTimeout(() => {
+          Swal.fire(
+            'Deleted!',
+            'Your file has been deleted.',
+            'success'
+          )
+        }, 2000);
+        console.log(this.data.service.EMP_Id + "emp id eka 3");
       }
     })
   }
