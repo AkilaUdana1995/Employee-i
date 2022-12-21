@@ -1,5 +1,5 @@
-<div class="container-fluid" style="min-height: 84.79vh;">
-    <table class="table p-2">
+<div class="container-fluid p-0" style="min-height: 84.79vh;font-size:xx-small">
+    <table class="table">
         <thead>
             <tr>
                 <th scope="col">#</th>
@@ -7,23 +7,21 @@
                 <th scope="col">Gender</th>
                 <th scope="col">EMP_code</th>
                 <th scope="col">Department</th>
-                <th>Edit</th>
-                <th>Delete</th>
+                <th scope="col">Edit</th>
+                <th scope="col">Delete</th>
             </tr>
         </thead>
         <tbody>
             <tr *ngFor="let emp of employeeData index as id">
-                <th scope="row">{{id}}</th>
+                <th>{{id}}</th>
                 <td>{{emp.name}}</td>
                 <td>{{emp.gender}}</td>
                 <td>{{emp.EMP_code}}</td>
                 <td>{{emp.department}}</td>
-                <td><button class="p-2" mat-icon-button disabled
-                        aria-label="Example icon button with a open in new tab icon">
+                <td><button mat-icon-button disabled aria-label="Example icon button with a open in new tab icon">
                         <mat-icon (click)="openDialog(emp)" color="accent">edit</mat-icon>
                     </button></td>
-                <td><button class="p-2" mat-icon-button disabled
-                        aria-label="Example icon button with a open in new tab icon">
+                <td><button mat-icon-button disabled aria-label="Example icon button with a open in new tab icon">
                         <mat-icon (click)="openDialog(emp)" color="warn">delete</mat-icon>
                     </button></td>
             </tr>

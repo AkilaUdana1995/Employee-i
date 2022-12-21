@@ -15,6 +15,8 @@ import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dial
   styleUrls: ['./edit-emp.component.scss']
 })
 export class EditEmpComponent implements OnInit {
+  public isUpdated: boolean = false;
+  public state:number=0
   Departments = Departments.empDepartments;
   genderList: any = ['male ', 'female', 'prfer not to say'];
   //getting data through a form with validators
@@ -63,11 +65,14 @@ export class EditEmpComponent implements OnInit {
   ) {
     if (data) {
       this.loadEMPdata();
+      this.isUpdated = true;
+      this.state=1;
     }
 
   }
 
   ngOnInit(): void {
+   // this.state=1;
   }
 
   updatedAlert() {
@@ -143,6 +148,8 @@ export class EditEmpComponent implements OnInit {
   }
 
   deleteEMPdata() {
+    this.isUpdated = true;
+    this.state=1;
     console.log(this.data.service.EMP_Id + "emp id eka mulin");
     Swal.fire({
       title: 'Are you sure?',

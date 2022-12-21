@@ -82,7 +82,7 @@ export class DatabaseManagerService {
   updateEmployees(Emp_Id: string, data: any) {
     return new Promise<any>((resolve, reject) => {
       this.EmployeesRef.doc(Emp_Id).update(data).then((result) => {
-        resolve(true);
+          resolve(true);
       }).catch((err) => {
         reject(err);
       })

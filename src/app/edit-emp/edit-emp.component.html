@@ -115,13 +115,13 @@
             </div>
 
 
-            <button [disabled]="!registerForm.valid" (click)="editEMPdata()" class="myButton mb-2" mat-raised-button
+            <button  (click)="editEMPdata()" class="myButton mb-2" mat-raised-button
                 color="accent" type="submit">Update
                 Employee
             </button>
 
-            <button [disabled]="!registerForm.valid" (click)="deleteEMPdata()" class="myButton mb-2" mat-raised-button
-                color="warn" type="submit">Update
+            <button [hidden]="!isUpdated"   (click)="deleteEMPdata()" class="myButton mb-2" mat-raised-button
+                color="warn" type="submit">Delete
                 Employee
             </button>
 
@@ -129,6 +129,3 @@
         </form>
     </div>
 </div>
-
-
-<button (click)="loadEMPdata()" class="btn btn-primary"> click me</button>
