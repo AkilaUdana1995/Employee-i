@@ -25,6 +25,7 @@ import { ViewEmployeesComponent } from './view-employees/view-employees.componen
 import { MatDialogModule, MatDialogRef, MAT_DIALOG_DATA, } from '@angular/material/dialog';
 import { EditEmpComponent } from './edit-emp/edit-emp.component';
 import { HomeComponent } from './home/home.component';
+import { LoginComponent } from './login/login.component';
 
 
 
@@ -34,7 +35,8 @@ import { HomeComponent } from './home/home.component';
     PostEmpComponent,
     ViewEmployeesComponent,
     EditEmpComponent,
-    HomeComponent
+    HomeComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
