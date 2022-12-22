@@ -9,6 +9,7 @@
                 <th scope="col">Department</th>
                 <th scope="col">Edit</th>
                 <th scope="col">Delete</th>
+                <!-- <th scope="col">test me</th> -->
             </tr>
         </thead>
         <tbody>
@@ -21,9 +22,14 @@
                 <td><button mat-icon-button disabled aria-label="Example icon button with a open in new tab icon">
                         <mat-icon (click)="openDialog(emp)" color="accent">edit</mat-icon>
                     </button></td>
-                <td><button mat-icon-button disabled aria-label="Example icon button with a open in new tab icon">
+                <!-- <td><button mat-icon-button disabled aria-label="Example icon button with a open in new tab icon">
                         <mat-icon id="1" (click)="openDialog2(id,emp)" color="warn">delete</mat-icon>
+                    </button></td> -->
+
+                    <td><button mat-icon-button disabled aria-label="Example icon button with a open in new tab icon">
+                        <mat-icon id="1" (click)="deleteEMPdata(id)" color="warn">delete</mat-icon>
                     </button></td>
+                <!-- <td (click)="deleteEMPdata(id)">click me</td> -->
             </tr>
 
         </tbody>

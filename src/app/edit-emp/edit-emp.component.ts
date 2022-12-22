@@ -7,6 +7,7 @@ import { Router } from '@angular/router';
 //sweet alert
 import Swal from 'sweetalert2'
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { Employees } from '../Models/employee';
 
 
 @Component({
@@ -15,6 +16,7 @@ import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dial
   styleUrls: ['./edit-emp.component.scss']
 })
 export class EditEmpComponent implements OnInit {
+  public employeeData: Array<Employees> = new Array<Employees>();
   public isUpdated: boolean = false;
   public state: number = 8;
   Departments = Departments.empDepartments;
@@ -166,6 +168,7 @@ export class EditEmpComponent implements OnInit {
     }).then((result) => {
       if (result.isConfirmed) {
         this.databaseManager.deleteEmployee(this.data.service.Emp_Id);
+//this.employeeData.splice(id,1);
         console.log(this.data.service.EMP_Id + "emp id eka 2");
 
         console.log("methnta awa delete eke");
