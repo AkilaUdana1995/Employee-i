@@ -9,7 +9,8 @@ import { PostEmpComponent } from './post-emp/post-emp.component';
 //angular fire imports
 import { provideFirebaseApp, getApp, initializeApp } from '@angular/fire/app';
 import { getFirestore, provideFirestore } from '@angular/fire/firestore';
-
+//import { AngularFireAuthModule } from '@angular/fire/auth';
+import { getAuth, provideAuth } from '@angular/fire/auth';
 
 
 //from angular material
@@ -51,6 +52,7 @@ import { LoginComponent } from './login/login.component';
     MatDialogModule,
     provideFirebaseApp(() => initializeApp(environment.firebaseConfig)),
     provideFirestore(() => getFirestore()),
+    provideAuth(() => getAuth()),
   ],
   providers: [
     { provide: FIREBASE_OPTIONS, useValue: environment.firebaseConfig },

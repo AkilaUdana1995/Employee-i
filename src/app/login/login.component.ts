@@ -30,45 +30,6 @@ export class LoginComponent implements OnInit {
   );
 
 
-  // registerForm = new FormGroup(
-  //   {
-  //     name: new FormControl(
-  //       '',
-  //       [Validators.required]
-  //     ),
-  //     address: new FormControl(
-  //       '',
-  //       [Validators.required,]
-  //     ),
-  //     NIC: new FormControl(
-  //       '',
-  //       [Validators.required,
-  //       Validators.pattern("^[0-9]*$"),
-  //       Validators.minLength(9),
-  //       Validators.maxLength(12),
-  //       ]
-  //     ),
-
-  //     EMP_code: new FormControl(
-  //       '',
-  //       [Validators.required,
-  //       Validators.pattern("^[0-9]*$")]
-  //     ),
-
-  //     gender: new FormControl(
-  //       '',
-  //       [Validators.required,]
-  //     ),
-
-  //     department: new FormControl(
-  //       '',
-  //       [Validators.required,]
-  //     ),
-  //   }
-  // );
-
-
-
 
   // loginForm = new FormGroup(
   //   {
@@ -91,16 +52,18 @@ export class LoginComponent implements OnInit {
 
   ngOnInit(): void {
   }
-  // signin(email: string, password: string, username: string,accountType:string) {
-  // signin(email: string, password: string, username: string) {
-  //   this.authService.SignUp(email, password, username,"Personal").then(e => {
-  //     this.authService.isUserAvailable().then(res => {
-  //       if (res) {
-  //         this.dialogRef.close();
-  //       }
-  //     });
-  //   })
-  // }
+
+
+  // signin(email: string, password: string, username: string,accountType:string)
+  signin(email: string, password: string, username: string) {
+    this.authService.SignUp(email, password, username).then(e => {
+      this.authService.isUserAvailable().then(res => {
+        if (res) {
+          this.dialogRef.close();
+        }
+      });
+    })
+  }
 
 
 }

@@ -6,6 +6,7 @@ import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/comp
 import { Observable } from 'rxjs';
 import { Employees } from './Models/employee';
 import * as firebase from 'firebase/compat';
+import { Client } from './Models/clients';
 
 @Injectable({
   providedIn: 'root'
@@ -14,12 +15,16 @@ export class DatabaseManagerService {
 
   //db paths
   private readonly DBPATH_EMP = "Employees";
+  private readonly DBPATH_CLIENT = "Client";
 
   // collections ref
   private EmployeesRef: AngularFirestoreCollection<Employees>;
+  private clientRef: AngularFirestoreCollection<Client>;
 
   constructor(private firestore: AngularFirestore) {
     this.EmployeesRef = this.firestore.collection(this.DBPATH_EMP);
+    this.clientRef = this.firestore.collection(this.DBPATH_CLIENT);
+
   }
 
   generateKey(): string {
@@ -82,7 +87,7 @@ export class DatabaseManagerService {
   updateEmployees(Emp_Id: string, data: any) {
     return new Promise<any>((resolve, reject) => {
       this.EmployeesRef.doc(Emp_Id).update(data).then((result) => {
-          resolve(true);
+        resolve(true);
       }).catch((err) => {
         reject(err);
       })
@@ -99,6 +104,13 @@ export class DatabaseManagerService {
         reject(err);
       })
     })
+  }
+  /**
+    * Add new user
+    * @param client 
+    */
+  addNewClient(client: Client) {
+    this.clientRef.doc(client.clientId).set(client);
   }
 
 }

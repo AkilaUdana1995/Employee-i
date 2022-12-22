@@ -1,7 +1,8 @@
 <div>
-    <div class="col-12 p-0 px-2 mt-4 mb-3" style="display: flex;align-items: center;">
-        <span style="font-size: 1.4em;"><b>Welcome to VehicleDealz.lk</b></span>
-        <span mat-dialog-close class="material-icons" style="margin-left: auto;margin-right: 0%;">close</span>
+    <span mat-dialog-close class="material-icons"
+        style="margin-left: auto;margin-right: 1%;float: right;padding-top: 5px;">close</span>
+    <div class="col-12 p-0 px-2 mt-4 mb-3 center" style="display: flex;">
+        <span style="font-size: 1.4em;"><b>Welcome to EMP Console</b></span>
     </div>
     <div class="col-12 p-0">
 
@@ -12,8 +13,8 @@
                 <form #form="ngForm" autocomplete="off" [formGroup]="registerForm">
                     <div class="form-group">
                         <label for="exampleInputEmail1">Name</label>
-                        <input type="email" class="form-control" id="InputName" placeholder="Enter your name"
-                            formControlName="name"
+                        <input #nameRegister type="email" class="form-control" id="InputName"
+                            placeholder="Enter your name" formControlName="name"
                             [ngClass]="{ 'is-invalid': registerForm.controls['name'].touched && registerForm.controls['name'].errors }">
                         <div *ngIf=" registerForm.controls['name'].errors" class="invalid-feedback">
                             <div *ngIf="registerForm.controls['name'].errors['required']">Name is required</div>
@@ -25,8 +26,8 @@
                     <br>
                     <div class="form-group">
                         <label for="exampleInputEmail1">Email address</label>
-                        <input type="email" class="form-control" id="InputEmail" placeholder="Enter your email"
-                            formControlName="email"
+                        <input #emailRegister type="email" class="form-control" id="InputEmail"
+                            placeholder="Enter your email" formControlName="email"
                             [ngClass]="{ 'is-invalid': registerForm.controls['email'].touched && registerForm.controls['email'].errors }">
                         <div *ngIf=" registerForm.controls['email'].errors" class="invalid-feedback">
                             <div *ngIf="registerForm.controls['email'].errors['required']">Email is required</div>
@@ -72,11 +73,11 @@
                     <section>
                         <div class="example-label"></div>
                         <div class="example-button-row" mat-dialog-actions>
-                            <button class="myButton" mat-raised-button color="primary"
-                                [disabled]="!registerForm.valid">Sign
+                            <button (click)="signin(emailRegister.value, passwordRegister.value,nameRegister.value)"
+                                class="myButton" mat-raised-button color="primary" [disabled]="!registerForm.valid">Sign
                                 Up</button>
-                            <button class="btn btn-dark mt-3 mb-1 text-white"><img src="../../assets/images/addUser.png"
-                                    alt="" width="30">&nbsp;&nbsp;
+                            <button class="btn btn-dark mt-3 mb-1 text-white"><img
+                                    src="../../assets/images/google (2).png" alt="" width="30">&nbsp;&nbsp;
                                 Google</button>
                         </div>
                     </section>

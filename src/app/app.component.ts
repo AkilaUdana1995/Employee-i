@@ -24,17 +24,17 @@ export class AppComponent {
 
   }
 
-  openDialog() {
+  openDialog(val:string) {
     let dialogRef = this.dialog.open(LoginComponent);
-    // dialogRef.afterClosed().subscribe(result => {
-    //   if (val === 'post' && result) {
-    //     this.router.navigate(['/']);
-    //     console.log(result + "result eka ena");
+    dialogRef.afterClosed().subscribe(result => {
+      if (val === 'post' && result) {
+        this.router.navigate(['/']);
+        console.log(result + "result eka ena");
 
-    //   } else if (val === 'account' && result) {
-    //     this.router.navigate(['/employee']);
-    //   }
-    // });
+      } else if (val === 'account' && result) {
+        this.router.navigate(['/employee']);
+      }
+    });
   }
 
 }
