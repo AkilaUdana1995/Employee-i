@@ -168,7 +168,7 @@ export class EditEmpComponent implements OnInit {
     }).then((result) => {
       if (result.isConfirmed) {
         this.databaseManager.deleteEmployee(this.data.service.Emp_Id);
-//this.employeeData.splice(id,1);
+        //this.employeeData.splice(id,1);
         console.log(this.data.service.EMP_Id + "emp id eka 2");
 
         console.log("methnta awa delete eke");

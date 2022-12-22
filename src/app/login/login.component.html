@@ -1,1 +1,100 @@
-<p>login works!</p>
+<div>
+    <div class="col-12 p-0 px-2 mt-4 mb-3" style="display: flex;align-items: center;">
+        <span style="font-size: 1.4em;"><b>Welcome to VehicleDealz.lk</b></span>
+        <span mat-dialog-close class="material-icons" style="margin-left: auto;margin-right: 0%;">close</span>
+    </div>
+    <div class="col-12 p-0">
+
+        <div class="row m-0 pb-4 sign-container">
+
+            <div class="col-12">
+                <!--sign up starts-->
+                <form #form="ngForm" autocomplete="off" [formGroup]="registerForm">
+                    <div class="form-group">
+                        <label for="exampleInputEmail1">Name</label>
+                        <input type="email" class="form-control" id="InputName" placeholder="Enter your name"
+                            formControlName="name"
+                            [ngClass]="{ 'is-invalid': registerForm.controls['name'].touched && registerForm.controls['name'].errors }">
+                        <div *ngIf=" registerForm.controls['name'].errors" class="invalid-feedback">
+                            <div *ngIf="registerForm.controls['name'].errors['required']">Name is required</div>
+                        </div>
+                    </div>
+
+
+
+                    <br>
+                    <div class="form-group">
+                        <label for="exampleInputEmail1">Email address</label>
+                        <input type="email" class="form-control" id="InputEmail" placeholder="Enter your email"
+                            formControlName="email"
+                            [ngClass]="{ 'is-invalid': registerForm.controls['email'].touched && registerForm.controls['email'].errors }">
+                        <div *ngIf=" registerForm.controls['email'].errors" class="invalid-feedback">
+                            <div *ngIf="registerForm.controls['email'].errors['required']">Email is required</div>
+                            <div *ngIf="registerForm.controls['email'].errors['email']">Must be a valid email address
+                            </div>
+                        </div>
+                    </div>
+
+                    <br>
+                    <div class="form-group">
+                        <label for="exampleInputPassword1">Password</label>
+                        <input #passwordRegister type="password" class="form-control" id="InputPassword"
+                            placeholder="Enter Password" formControlName="password"
+                            [ngClass]="{ 'is-invalid': registerForm.controls['password'].touched && registerForm.controls['password'].errors }">
+                        <div *ngIf=" registerForm.controls['password'].errors" class="invalid-feedback">
+                            <div *ngIf="registerForm.controls['password'].errors['required']">Password is required</div>
+                            <div *ngIf="registerForm.controls['password'].errors['minlength']">Password must be at least
+                                8 characters
+                            </div>
+                        </div>
+                    </div>
+
+                    <br>
+                    <div class="form-group">
+                        <label for="exampleInputPassword1">Confirm Password</label>
+                        <input #repasswordRegister type="password" class="form-control" id="ConfirmInputPassword1"
+                            placeholder="Confirm password" formControlName="confirmPassword"
+                            [ngClass]="{ 'is-invalid': registerForm.controls['confirmPassword'].touched && registerForm.controls['confirmPassword'].errors }">
+                        <div *ngIf=" registerForm.controls['confirmPassword'].errors" class="invalid-feedback">
+                            <div *ngIf="registerForm.controls['confirmPassword'].errors['required']">This feild is
+                                required</div>
+                            <div *ngIf="registerForm.controls['confirmPassword']">Passwords doesn't match</div>
+                        </div>
+                    </div>
+
+
+
+                    <span class="mt-2"
+                        style="color: red;font-size: .8em;font-weight: 500;margin-left: auto;margin-right: 0;margin-top: 10px;"></span>
+                </form>
+
+                <div>
+                    <section>
+                        <div class="example-label"></div>
+                        <div class="example-button-row" mat-dialog-actions>
+                            <button class="myButton" mat-raised-button color="primary"
+                                [disabled]="!registerForm.valid">Sign
+                                Up</button>
+                            <button class="btn btn-dark mt-3 mb-1 text-white"><img src="../../assets/images/addUser.png"
+                                    alt="" width="30">&nbsp;&nbsp;
+                                Google</button>
+                        </div>
+                    </section>
+                </div>
+
+                <!-- sig in eke '' tanata oka danda ona  accountTypesRegister.value -->
+
+                <br><br>
+                <div>
+                    <section>
+                        <div class="example-label"></div>
+                        <div class="forgotpassword"><B>Already have an account</B></div>
+                        <div class="example-button-row" mat-dialog-actions>
+                            <button class="secondaryButtons" mat-raised-button color="accent">Login</button>
+                        </div>
+                    </section>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

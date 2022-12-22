@@ -1,0 +1,56 @@
+::ng-deep .mat-dialog-container {
+    padding: 0%;
+}
+
+.sign-container {
+    width: 40vw;
+    overflow-y: auto;
+    max-height: 80vh;
+}
+
+.my-class {
+    width: 100px;
+    min-width: unset !important;
+}
+
+.example-button-row {
+    background-color: #ffffff;
+    justify-content: center;
+}
+
+.myButton {
+    height: 40px !important;
+    width: 100% !important;
+}
+
+.anyClass {
+    overflow-y: auto;
+}
+
+.close {
+    float: right;
+}
+
+.secondaryButtons {
+    height: 40px !important;
+    width: 100% !important;
+    background-color: #ff8080;
+    color: white;
+}
+
+.forgotpassword {
+    text-align: center;
+    justify-content: center;
+}
+
+//test
+
+@media screen and (max-width: 767px) {
+    .desktopOnly {
+        display: none;
+    }
+
+    .sign-container {
+        width: 80vw;
+    }
+}
