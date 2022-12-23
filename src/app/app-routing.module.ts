@@ -11,7 +11,7 @@ import { ViewEmployeesComponent } from './view-employees/view-employees.componen
 const routes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'login', component: LoginComponent },
-  { path: 'myAccount', component: MyAccountComponent },
+  { path: 'myaccount', component: MyAccountComponent },
   { path: 'employee', component: PostEmpComponent },
   { path: 'viewEmployees', component: ViewEmployeesComponent },
   { path: 'editEmployees', component: EditEmpComponent }

@@ -11,7 +11,7 @@ import { AuthService } from '../services/auth.service';
 })
 export class LoginComponent implements OnInit {
   [x: string]: any;
-  public loginState: number = 0;
+  public loginState: string = "";
   //accountTypes: any = ['Personal', 'Car Sale'];   //these are accessed in when selecting a profile
 
 
@@ -31,15 +31,15 @@ export class LoginComponent implements OnInit {
 
 
 
-  // loginForm = new FormGroup(
-  //   {
-  //     email: new FormControl('', [Validators.required, Validators.email]),
-  //     password: new FormControl('', [
-  //       Validators.required,
-  //       Validators.minLength(8)
-  //     ]),
-  //   },
-  // );
+  loginForm = new FormGroup(
+    {
+      email: new FormControl('', [Validators.required, Validators.email]),
+      password: new FormControl('', [
+        Validators.required,
+        Validators.minLength(8)
+      ]),
+    },
+  );
   value: string = "";
   success = '';
 
@@ -54,7 +54,7 @@ export class LoginComponent implements OnInit {
   }
 
 
-  // signin(email: string, password: string, username: string,accountType:string)
+  // sign-up(email: string, password: string, username: string,accountType:string)
   signin(email: string, password: string, username: string) {
     this.authService.SignUp(email, password, username).then(e => {
       this.authService.isUserAvailable().then(res => {
@@ -63,6 +63,29 @@ export class LoginComponent implements OnInit {
         }
       });
     })
+  }
+
+
+  //login
+  login(username: string, password: string) {
+    this.authService.SignIn(username, password).then(e => {
+      this.authService.isUserAvailable().then(res => {
+        if (res) {
+          this.dialogRef.close();
+          console.log("weda kara!!!");
+
+        }
+      });
+    })
+  }
+  //method to swap between sign Up and login
+  changeInterface(state: string) {
+    this.loginState = state;
+    console.log(state + "current login state");
+
+    this.authService.clearAuthMessage();
+    console.log("awoooooooooooo");
+
   }
 
 

@@ -13,11 +13,11 @@
         <li *ngIf="auth.userData" class="desktop-only">
           <button mat-button *ngIf="auth.loginState===0" (click)="openDialog('account')">
             <i style="color: white;" class="material-icons">manage_accounts</i>
-            <label style="color: white;">My Account</label>
+            <label style="color: white;">My AccountB</label>
           </button>
-          <a href="/myAccount" mat-button *ngIf="auth.loginState!==0">
+          <a href="/myaccount" mat-button *ngIf="auth.loginState!==0">
             <i style="color: white;" class="material-icons">manage_accounts</i>
-            <label style="color: white;">My Account</label>
+            <label style="color: white;">My AccountA</label>
           </a>
         </li>
 

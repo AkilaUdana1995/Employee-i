@@ -32,7 +32,7 @@ export class AppComponent {
         console.log(result + "result eka ena");
 
       } else if (val === 'account' && result) {
-        this.router.navigate(['/myAccount']);
+        this.router.navigate(['/myaccount']);
       }
     });
   }

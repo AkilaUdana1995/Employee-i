@@ -4,10 +4,71 @@
     <div class="col-12 p-0 px-2 mt-4 mb-3 center" style="display: flex;">
         <span style="font-size: 1.4em;"><b>Welcome to EMP Console</b></span>
     </div>
-    <div class="col-12 p-0">
+    <div class="col-12 p-0" [ngSwitch]="loginState">
 
-        <div class="row m-0 pb-4 sign-container">
+        <div class="row m-0 pb-4 sign-container" *ngSwitchCase="'login'">
 
+            <div class="col-md-12 col-12" style="background-color: #FFFFFF;">
+                <!-- <p class="h2">Let's Login to your Account</p> -->
+                <form #form="ngForm" autocomplete="off" [formGroup]="loginForm">
+                    <div class="form-group">
+                        <label for="exampleInputEmail1">Email</label>
+                        <input #userNameRegister type="email" class="form-control" id="InputUName"
+                            aria-describedby="emailHelp" placeholder="Enter your email" formControlName="email"
+                            (keydown.enter)="passwordRegister.focus()"
+                            [ngClass]="{ 'is-invalid': loginForm.controls['email'].touched && loginForm.controls['email'].errors }">
+                        <div *ngIf=" loginForm.controls['email'].errors" class="invalid-feedback">
+                            <div *ngIf="loginForm.controls['email'].errors['required']">Email is required</div>
+                        </div>
+                    </div>
+                    <br>
+                    <div class="form-group">
+                        <label for="exampleInputEmail1">Password</label>
+                        <input #passwordRegister type="password" class="form-control" id="InputPwd"
+                            aria-describedby="emailHelp" placeholder="Enter your password" formControlName="password"
+                            (keydown.enter)="login(userNameRegister.value, passwordRegister.value)"
+                            [ngClass]="{ 'is-invalid': loginForm.controls['password'].touched && loginForm.controls['password'].errors }">
+                        <div *ngIf=" loginForm.controls['password'].errors" class="invalid-feedback">
+                            <div *ngIf="loginForm.controls['password'].errors['required']">Password is required</div>
+                            <div *ngIf="loginForm.controls['password'].errors['minlength']">Password must be at least 8
+                                characters
+                            </div>
+                        </div>
+                    </div>
+                </form>
+                <br>
+                <div>
+                    <span class="mt-2" *ngIf="!authService.processSucceed"
+                        style="color: red;font-size: .8em;font-weight: 500;margin-left: auto;margin-right: 0;margin-top: 10px;">{{authService.authMessage}}</span>
+                    <!-- <label for="exampleInputEmail1" *ngIf="!authService.isLoggedIn">sign in Not working</label> -->
+                </div>
+                <div>
+                    <section>
+                        <div class="example-label"></div>
+                        <div class="example-button-row" mat-dialog-actions>
+                            <button class="myButton" mat-raised-button color="primary" [disabled]="!loginForm.valid"
+                                (click)="login(userNameRegister.value, passwordRegister.value)">Login</button>
+                            <button class="btn btn-dark mt-3 mb-1 text-white" style="margin-top: 10px;"><img
+                                    src="../../assets/images/google.svg" alt="" width="30">&nbsp;&nbsp;
+                                Google</button>
+                        </div>
+                    </section>
+                </div>
+                <br><br>
+                <div>
+                    <section>
+                        <div class="example-label"></div>
+                        <div class="forgotpassword"><B>Forgot Password</B></div>
+                        <div class="example-button-row" mat-dialog-actions>
+                            <button class="secondaryButtons" style="padding: 5px;" mat-raised-button color="accent"
+                                (click)="changeInterface('login')">Forgot password</button>
+                        </div>
+                    </section>
+                </div>
+            </div>
+        </div>
+
+        <div class="row m-0 pb-4 sign-container bg-warning" *ngSwitchDefault>
             <div class="col-12">
                 <!--sign up starts-->
                 <form #form="ngForm" autocomplete="off" [formGroup]="registerForm">
@@ -91,7 +152,8 @@
                         <div class="example-label"></div>
                         <div class="forgotpassword"><B>Already have an account</B></div>
                         <div class="example-button-row" mat-dialog-actions>
-                            <button class="secondaryButtons" mat-raised-button color="accent">Login</button>
+                            <button (click)="changeInterface('login')" class="secondaryButtons" mat-raised-button
+                                color="accent">LoginA</button>
                         </div>
                     </section>
                 </div>

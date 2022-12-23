@@ -10,15 +10,15 @@ import { AngularFireAnalytics } from '@angular/fire/compat/analytics';
   providedIn: 'root'
 })
 export class AuthService {
-    //constants
-    private readonly WRONG_PASSWORD = "auth/wrong-password";
-    private readonly INVALID_EMAIL = "auth/invalid-email";
-    private readonly NOT_REGISTERD = "auth/user-not-found";
-  
-    userData: any = null; // Save logged in user data
-    processSucceed: boolean = true;
-    verifyEmailLock: boolean = false;
-    authMessage: string = "";
+  //constants
+  private readonly WRONG_PASSWORD = "auth/wrong-password";
+  private readonly INVALID_EMAIL = "auth/invalid-email";
+  private readonly NOT_REGISTERD = "auth/user-not-found";
+
+  userData: any = null; // Save logged in user data
+  processSucceed: boolean = true;
+  verifyEmailLock: boolean = false;
+  authMessage: string = "";
 
   constructor(
     private databaseManager: DatabaseManagerService,
@@ -78,6 +78,8 @@ export class AuthService {
       this.afAuth.authState.subscribe(user => {
         if (user) {
           this.userData = user;
+          console.log(this.userData + "currently logged user");
+
           resolve(true);
         } else {
         }
@@ -85,20 +87,20 @@ export class AuthService {
     });
   }
 
-    // Return login state by checking user data with verification
-    get loginState(): any {
-      const user = JSON.parse(localStorage.getItem('user') || '{}');
-      if (user !== null && (user.emailVerified !== false || user.providerData[0].providerId === "facebook.com"))
-        return LoginState.VerfiedLogin;
-      else if (user !== null) {
-        this.verifyEmailLock = true;
-        return LoginState.notVerified;
-      }
-      else
-        return LoginState.notLoggedIn;
+  // Return login state by checking user data with verification
+  get loginState(): any {
+    const user = JSON.parse(localStorage.getItem('user') || '{}');
+    if (user !== null && (user.emailVerified !== false || user.providerData[0].providerId === "facebook.com"))
+      return LoginState.VerfiedLogin;
+    else if (user !== null) {
+      this.verifyEmailLock = true;
+      return LoginState.notVerified;
     }
-  
-  // Sign in with email/password
+    else
+      return LoginState.notLoggedIn;
+  }
+
+  // login  in with email/password
   SignIn(email: string, password: string) {
     this.clearAuthMessage();
     return this.afAuth.signInWithEmailAndPassword(email, password)
