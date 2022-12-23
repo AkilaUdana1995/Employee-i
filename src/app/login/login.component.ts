@@ -11,7 +11,7 @@ import { AuthService } from '../services/auth.service';
 })
 export class LoginComponent implements OnInit {
   [x: string]: any;
-  public loginState: string = "Initial";
+  public loginState: number = 0;
   //accountTypes: any = ['Personal', 'Car Sale'];   //these are accessed in when selecting a profile
 
 
