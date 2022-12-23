@@ -8,5 +8,5 @@ export interface User {
  }
  
  export enum LoginState {
-    notLoggedIn, notVerified, VerfiedLogin
+    notLoggedIn,VerfiedLogin
  }

@@ -25,7 +25,10 @@ export class AuthService {
     public afAuth: AngularFireAuth,
     public ngZone: NgZone,
     private analytics: AngularFireAnalytics
-  ) { }
+  ) {
+    this.initilizeUser();
+
+  }
 
   // Sign up with email/password
   SignUp(email: string, password: string, myName: string) {
@@ -71,15 +74,28 @@ export class AuthService {
     }
   }
 
-
+  //initialize user; if we don't use this, it will not show myaccount menu.....
+  initilizeUser() {
+    /* Saving user data in localstorage when 
+    logged in and setting up null when logged out */
+    this.afAuth.authState.subscribe(user => {
+      if (user) {
+        this.userData = user;
+        localStorage.setItem('user', JSON.stringify(this.userData));
+        JSON.parse(localStorage.getItem('user') || '{}');
+      } else {
+        localStorage.setItem('user', '');
+        JSON.parse(localStorage.getItem('user') || '{}');
+      }
+    })
+  }
   //return user availability
   isUserAvailable() {
     return new Promise<boolean>(resolve => {
       this.afAuth.authState.subscribe(user => {
         if (user) {
           this.userData = user;
-          console.log(this.userData + "currently logged user");
-
+          console.log(this.userData.UID + "currently logged user");
           resolve(true);
         } else {
         }
@@ -89,15 +105,23 @@ export class AuthService {
 
   // Return login state by checking user data with verification
   get loginState(): any {
-    const user = JSON.parse(localStorage.getItem('user') || '{}');
-    if (user !== null && (user.emailVerified !== false || user.providerData[0].providerId === "facebook.com"))
+    const user = JSON.parse(localStorage.getItem('user')!);
+    // if (user !== null && (user.emailVerified !== false || user.providerData[0].providerId === "facebook.com"))
+
+    //   return LoginState.VerfiedLogin;
+    if (user !== null) {
+      console.log(LoginState.VerfiedLogin + "*#*vefified  login");
+      console.log(JSON.parse(localStorage.getItem('currentUser')!) + "%%%%%%%%%%");
+
+      //this.verifyEmailLock = true;
+      // console.log(LoginState.notVerified + "####not vefified  login");
       return LoginState.VerfiedLogin;
-    else if (user !== null) {
-      this.verifyEmailLock = true;
-      return LoginState.notVerified;
+
+      // return LoginState.notVerified;
     }
     else
-      return LoginState.notLoggedIn;
+      console.log(LoginState.notLoggedIn + "not logged");
+    return LoginState.notLoggedIn;
   }
 
   // login  in with email/password
