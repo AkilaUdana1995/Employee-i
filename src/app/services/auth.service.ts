@@ -111,7 +111,7 @@ export class AuthService {
     //   return LoginState.VerfiedLogin;
     if (user !== null) {
       console.log(LoginState.VerfiedLogin + "*#*vefified  login");
-      console.log(JSON.parse(localStorage.getItem('currentUser')!) + "%%%%%%%%%%");
+      console.log(JSON.parse(localStorage.getItem('user.uid')!) + "%%%%%%%%%%");
 
       //this.verifyEmailLock = true;
       // console.log(LoginState.notVerified + "####not vefified  login");
