@@ -12,6 +12,7 @@ import { AuthService } from './services/auth.service';
 })
 export class AppComponent {
   title = 'empApp';
+  isLoggedIn: boolean = false;
   /**
    *
    */
@@ -20,11 +21,18 @@ export class AppComponent {
     private router: Router,
     @Inject(MAT_DIALOG_DATA) public data: any,
     public dialogRef: MatDialogRef<AppComponent>) {
+    auth.isUserAvailable().then((res) => {
+      if (res) {
+        this.isLoggedIn = auth.loginState;
+        console.log(auth.loginState+"Current login state");
+        
+      }
+    })
 
 
   }
 
-  openDialog(val:string) {
+  openDialog(val: string) {
     let dialogRef = this.dialog.open(LoginComponent);
     dialogRef.afterClosed().subscribe(result => {
       if (val === 'post' && result) {

@@ -54,7 +54,7 @@ export class LoginComponent implements OnInit {
   }
 
 
-  // sign-up(email: string, password: string, username: string,accountType:string)
+  // sign-up(email: string, password: string, username: string)
   signin(email: string, password: string, username: string) {
     this.authService.SignUp(email, password, username).then(e => {
       this.authService.isUserAvailable().then(res => {

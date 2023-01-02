@@ -3,7 +3,7 @@ import { Client } from '../Models/clients';
 
 import { AngularFireAuth } from "@angular/fire/compat/auth";
 import { DatabaseManagerService } from '../database-manager.service';
-import { LoginState } from './user';
+import { LoginState, User } from './user';
 import { AngularFireAnalytics } from '@angular/fire/compat/analytics';
 
 @Injectable({
@@ -95,7 +95,7 @@ export class AuthService {
       this.afAuth.authState.subscribe(user => {
         if (user) {
           this.userData = user;
-          console.log(this.userData.UID + "currently logged user");
+          console.log(this.userData.uid + "currently logged user");
           resolve(true);
         } else {
         }
@@ -105,21 +105,22 @@ export class AuthService {
 
   // Return login state by checking user data with verification
   get loginState(): any {
-    const user = JSON.parse(localStorage.getItem('user')!);
+    const user = JSON.parse(localStorage.getItem("user") as string);
+   // console.log(user + "CID if any");
+    //return user.username;
+
+
+    // var user2 = JSON.parse(localStorage.getItem('currentUser') as string);
+    // console.log(user2.clientId);
+
     // if (user !== null && (user.emailVerified !== false || user.providerData[0].providerId === "facebook.com"))
 
     //   return LoginState.VerfiedLogin;
-    if (user !== null) {
-      console.log(LoginState.VerfiedLogin + "*#*vefified  login");
-      console.log(JSON.parse(localStorage.getItem('user.uid')!) + "%%%%%%%%%%");
-
-      //this.verifyEmailLock = true;
-      // console.log(LoginState.notVerified + "####not vefified  login");
+    if (user.uid !== null) {
+      console.log(user.uid + "username");
       return LoginState.VerfiedLogin;
-
-      // return LoginState.notVerified;
     }
-    else
+    else if((user===null))
       console.log(LoginState.notLoggedIn + "not logged");
     return LoginState.notLoggedIn;
   }
