@@ -5,6 +5,7 @@ import { AngularFireAuth } from "@angular/fire/compat/auth";
 import { DatabaseManagerService } from '../database-manager.service';
 import { LoginState, User } from './user';
 import { AngularFireAnalytics } from '@angular/fire/compat/analytics';
+import { provideStorage } from '@angular/fire/storage';
 
 @Injectable({
   providedIn: 'root'
@@ -105,8 +106,8 @@ export class AuthService {
 
   // Return login state by checking user data with verification
   get loginState(): any {
-    const user = JSON.parse(localStorage.getItem("user") as string);
-   // console.log(user + "CID if any");
+    const user = JSON.parse(localStorage.getItem('user') as string);
+    // console.log(user + "CID if any");
     //return user.username;
 
 
@@ -120,7 +121,7 @@ export class AuthService {
       console.log(user.uid + "username");
       return LoginState.VerfiedLogin;
     }
-    else if((user===null))
+    else //if(user==null && user.provideData===[0])
       console.log(LoginState.notLoggedIn + "not logged");
     return LoginState.notLoggedIn;
   }

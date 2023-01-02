@@ -10,17 +10,17 @@
         <li class="nav-item">
           <a class="nav-link active" aria-current="page" href="#">Home</a>
         </li>
-        <li *ngIf="auth.userData" class="desktop-only">
-          <button mat-button *ngIf="auth.loginState===0" (click)="openDialog('account')">
+        <li *ngIf="auth.userData" >
+          <button mat-button *ngIf="auth.loginState!==0" (click)="openDialog('account')">
             <i style="color: white;" class="material-icons">manage_accounts</i>
             <label style="color: white;">My AccountB</label>
           </button>
-          <a href="/myaccount" mat-button *ngIf="auth.loginState!==0">
+          <!-- <a href="/myaccount" mat-button *ngIf="auth.loginState!==0">
             <i style="color: white;" class="material-icons">manage_accounts</i>
             <label style="color: white;">My AccountA</label>
-          </a>
+          </a> -->
         </li>
-
+        <!-- [*ngIf="auth.loginState] ===0"  -->
         <li class="nav-item">
           <a (click)="openDialog('')" mat-button>
             <i class="material-icons">account_box</i>
