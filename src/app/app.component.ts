@@ -21,16 +21,20 @@ export class AppComponent {
     private router: Router,
     @Inject(MAT_DIALOG_DATA) public data: any,
     public dialogRef: MatDialogRef<AppComponent>) {
-    auth.isUserAvailable().then((res) => {
-      if (res) {
-        this.isLoggedIn = auth.loginState;
-        console.log(auth.loginState+"Current login state");
-        
-      }
-    })
-
+  
 
   }
+
+  // momo(){
+  //   this.auth.isUserAvailable().then((res) => {
+  //     if (res) {
+  //       this.isLoggedIn = this.auth.loginState;
+  //       console.log(this.auth.loginState+"Current login state");
+        
+  //     }
+  //   })
+
+  // }
 
   openDialog(val: string) {
     let dialogRef = this.dialog.open(LoginComponent);
