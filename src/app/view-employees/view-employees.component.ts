@@ -14,9 +14,12 @@ import Swal from 'sweetalert2';
   styleUrls: ['./view-employees.component.scss']
 })
 export class ViewEmployeesComponent implements OnInit {
+  public searchText: any;
   public getEmpId: string = "";
 
+  //this array for store results from database
   public employeeData: Array<Employees> = new Array<Employees>();
+
   constructor(private databaseManager: DatabaseManagerService,
     private dialog: MatDialog,
     @Inject(MAT_DIALOG_DATA) public data: any,
@@ -42,7 +45,7 @@ export class ViewEmployeesComponent implements OnInit {
         this.employeeData.push(element);
         console.log(element.Emp_Id + "emp id 42");
         this.getEmpId = element.Emp_Id;
-        console.log(this.employeeData + "outcome result");
+        console.log(this.employeeData.length + "outcome result");
 
       });
     })

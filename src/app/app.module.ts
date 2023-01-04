@@ -46,7 +46,9 @@ import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
 import { MyAccountComponent } from './my-account/my-account.component';
 
+//search filters
 
+import { Ng2SearchPipeModule } from 'ng2-search-filter';
 
 @NgModule({
   declarations: [
@@ -70,6 +72,7 @@ import { MyAccountComponent } from './my-account/my-account.component';
     ReactiveFormsModule,
     MatDialogModule,
     AngularFireAnalyticsModule,
+    Ng2SearchPipeModule,
     //provideFirebaseApp(() => initializeApp(environment.firebaseConfig)),  //this was worked until, Adding angular fire analitics module. after that point this was getting NUll injection error
     AngularFireModule.initializeApp(environment.firebaseConfig),
     provideFirestore(() => getFirestore()),
