@@ -46,6 +46,9 @@ import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
 import { MyAccountComponent } from './my-account/my-account.component';
 
+//elipsiss
+import { EllipsisModule } from 'ngx-ellipsis';
+
 //search filters
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
 //lottie
@@ -80,6 +83,7 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
     MatDialogModule,
     AngularFireAnalyticsModule,
     Ng2SearchPipeModule,
+    EllipsisModule,
     LottieModule.forRoot({ player: playerFactory }),
     //provideFirebaseApp(() => initializeApp(environment.firebaseConfig)),  //this was worked until, Adding angular fire analitics module. after that point this was getting NUll injection error
     AngularFireModule.initializeApp(environment.firebaseConfig),

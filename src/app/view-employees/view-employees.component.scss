@@ -1,4 +1,8 @@
-table {
-    max-width: 100%;
-    overflow-x: hidden;
+.truncate {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 50px;
+    //max-width: 75ch;
+    cursor: pointer;
 }
