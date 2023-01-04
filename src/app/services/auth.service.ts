@@ -121,9 +121,9 @@ export class AuthService {
     if (user !== null) {
       console.log(user.uid + "username");
       console.log("login verified line 122");
-      return LoginState.notLoggedIn;
+      return LoginState.VerfiedLogin;
     }
-    else //if(user==null && user.provideData===[0])
+    else if (user == null || user == '{}')
       console.log("not logged in line 126");
 
 
