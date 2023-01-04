@@ -1,10 +1,11 @@
 <div class="container-fluid p-0" style="min-height:84.79vh;font-size:xx-small">
     <div class="input-group rounded mt-1 p-0">
-        <input [(ngModel)]="searchText" style="margin-left:0.5%" type="search" class="form-control rounded" placeholder="Search" aria-label="Search" aria-describedby="search-addon" />
+        <input [(ngModel)]="searchText" style="margin-left:0.5%" type="search" class="form-control rounded"
+            placeholder="Search" aria-label="Search" aria-describedby="search-addon" />
         <span class="input-group-text border-0" id="search-addon">
-          <i class="fas fa-search material-icons">search</i>
+            <i class="fas fa-search material-icons">search</i>
         </span>
-      </div>
+    </div>
     <table class="table momo">
         <thead>
             <tr>
@@ -19,20 +20,22 @@
             </tr>
         </thead>
         <tbody>
-            <tr *ngFor="let emp of employeeData | filter:searchText index as id"  >
+            <tr *ngFor="let emp of employeeData | filter:searchText index as id">
                 <th>{{id}}</th>
-                <td  class="truncate">{{emp.name}}</td>
+                <td class="truncate">{{emp.name}}</td>
                 <td>{{emp.gender}}</td>
                 <td>{{emp.EMP_code}}</td>
                 <td>{{emp.department}}</td>
-                <td><button class="m-0 p-0" mat-icon-button disabled aria-label="Example icon button with a open in new tab icon">
-                        <mat-icon (click)="openDialog(emp)"  color="accent">edit</mat-icon>
+                <td><button class="m-0 p-0" mat-icon-button disabled
+                        aria-label="Example icon button with a open in new tab icon">
+                        <mat-icon (click)="openDialog(emp)" color="accent">edit</mat-icon>
                     </button></td>
                 <!-- <td><button mat-icon-button disabled aria-label="Example icon button with a open in new tab icon">
                         <mat-icon id="1" (click)="openDialog2(id,emp)" color="warn">delete</mat-icon>
                     </button></td> -->
 
-                <td><button class="m-0 p-0" mat-icon-button disabled aria-label="Example icon button with a open in new tab icon">
+                <td><button class="m-0 p-0" mat-icon-button disabled
+                        aria-label="Example icon button with a open in new tab icon">
                         <mat-icon id="1" (click)="deleteEMPdata(id)" color="warn">delete</mat-icon>
                     </button></td>
                 <!-- <td (click)="deleteEMPdata(id)">click me</td> -->
