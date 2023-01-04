@@ -47,8 +47,14 @@ import { LoginComponent } from './login/login.component';
 import { MyAccountComponent } from './my-account/my-account.component';
 
 //search filters
-
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
+//lottie
+import { LottieModule } from 'ngx-lottie';
+import player from 'lottie-web';
+export function playerFactory() {
+  return player;
+}
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 
 @NgModule({
   declarations: [
@@ -58,7 +64,8 @@ import { Ng2SearchPipeModule } from 'ng2-search-filter';
     EditEmpComponent,
     HomeComponent,
     LoginComponent,
-    MyAccountComponent
+    MyAccountComponent,
+    PageNotFoundComponent
   ],
   imports: [
     BrowserModule,
@@ -73,6 +80,7 @@ import { Ng2SearchPipeModule } from 'ng2-search-filter';
     MatDialogModule,
     AngularFireAnalyticsModule,
     Ng2SearchPipeModule,
+    LottieModule.forRoot({ player: playerFactory }),
     //provideFirebaseApp(() => initializeApp(environment.firebaseConfig)),  //this was worked until, Adding angular fire analitics module. after that point this was getting NUll injection error
     AngularFireModule.initializeApp(environment.firebaseConfig),
     provideFirestore(() => getFirestore()),
